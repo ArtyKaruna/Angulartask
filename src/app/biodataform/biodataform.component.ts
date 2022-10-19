@@ -109,6 +109,7 @@ export class BiodataformComponent implements OnInit {
   /*Edit Users*/
   editUsers(Id:any){
       this.isShowupdate=true;
+      this.isReadOnly=false;
       this.userservice.getUsersById(Id._id).subscribe(
         res => {
           console.log(res);
@@ -135,6 +136,7 @@ export class BiodataformComponent implements OnInit {
   /*View Users */
   Viewdata(Id:any){
     this.isReadOnly=true;
+    this.isShowupdate=false;
     this.userservice.getUsersById(Id._id).subscribe(
       res => {
         console.log(res);
