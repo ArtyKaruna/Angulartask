@@ -14,9 +14,6 @@
                         <input type="text" class="input-name" formControlName="lastName" placeholder="Last" [readonly]="isReadOnly" required/>
                         <div class="error text-danger mt-1" *ngIf="submitted && f3.lastName.errors">Please fill this field</div>
                     </div> 
-                    
-                    
-                   
                 </div>                        
             </div>
             <div class="clearfix"></div>
@@ -93,7 +90,8 @@
                 <div class="error text-danger mt-1" *ngIf="submitted && f3.comments.errors">Please fill this field</div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" (click)="onSubmit()">Submit</button>
+                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="!isShowupdate" (click)="onSubmit()">Submit</button>
+                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="isShowupdate" (click)="updateuser()" [disabled]="!isShowupdate">Update</button>
             </div>
         </form>
     </div>
@@ -104,7 +102,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>zipCode</th>
                     <th>Edit</th>
                     <th>Delete</th>
                     <th>View</th>
@@ -113,7 +110,6 @@
                     <td>{{data.firstName}}</td>
                     <td>{{data.email}}</td>
                     <td>{{data.phoneNumber}}</td>
-                    <td> {{data.zipCode}}</td>
                     <td><button class="ed" (click)="editUsers(data)">Edit</button></td>
                     <td><button class="ed" (click)="deleteUser(data._id)" style="background:#f00;">Delete</button></td>
                     <td><button class="ed"style="background:#000;" (click)="Viewdata(data)">View</button></td>

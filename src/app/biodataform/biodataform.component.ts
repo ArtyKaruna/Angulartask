@@ -21,6 +21,7 @@ export class BiodataformComponent implements OnInit {
   allUsers: any;
   AllUserdata: any;
   isReadOnly:boolean=false;
+  isShowupdate:boolean=false;
   constructor(private formbuilder: FormBuilder, public userservice: BiodataService) {
   }
 
@@ -107,6 +108,7 @@ export class BiodataformComponent implements OnInit {
   }
   /*Edit Users*/
   editUsers(Id:any){
+      this.isShowupdate=true;
       this.userservice.getUsersById(Id._id).subscribe(
         res => {
           console.log(res);
@@ -155,7 +157,34 @@ export class BiodataformComponent implements OnInit {
         }
       );
     }
-  }
+    /*Update Users */
+    updateuser(){
+      
+      this.userservice.updateUsers(this.AllUserdata._id,this.Biodataform.getRawValue()).subscribe(
+        res=>{
+          this.getUserlists();
+          this.Biodataform.reset();
+          this.Biodataform.markAsUntouched();
+          this.Biodataform = this.formbuilder.group({
+            _id:[''],
+            firstName: ['', [Validators.pattern('^[a-zA-Z \-\']+')]],
+            lastName: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+$')]],
+            phoneNumber: ['', [Validators.required]],
+            address1: ['', [Validators.required]],
+            address2: ['', [Validators.required]],
+            city: ['', [Validators.required]],
+            state: ['', [Validators.required]],
+            zipCode: ['', [Validators.required]],
+            country: ['', [Validators.required]],
+            qualification: ['', [Validators.required]],
+            comments: ['', [Validators.required]],
+          });
+        }
+      );
+    }
+}
+  
 
   
 
