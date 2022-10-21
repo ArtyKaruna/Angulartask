@@ -91,7 +91,7 @@
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="!isShowupdate" (click)="onSubmit()">Submit</button>
-                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="isShowupdate" (click)="updateuser()">Update</button>
+                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="isShowupdate" (click)="updateUser()">Update</button>
             </div>
         </form>
     </div>
@@ -112,7 +112,7 @@
                     <td>{{data.phoneNumber}}</td>
                     <td><button class="ed" (click)="editUsers(data)">Edit</button></td>
                     <td><button class="ed" (click)="deleteUser(data._id)" style="background:#f00;">Delete</button></td>
-                    <td><button class="ed"style="background:#000;" (click)="Viewdata(data)">View</button></td>
+                    <td><button class="ed"style="background:#000;" (click)="viewData(data)">View</button></td>
                 </tr>
             </tbody>
         </table>

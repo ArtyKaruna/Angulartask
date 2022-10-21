@@ -134,7 +134,7 @@ export class BiodataformComponent implements OnInit {
     );
   }
   /*View Users */
-  Viewdata(Id:any){
+  viewData(Id:any){
     this.isReadOnly=true;
     this.isShowupdate=false;
     this.userservice.getUsersById(Id._id).subscribe(
@@ -160,7 +160,7 @@ export class BiodataformComponent implements OnInit {
       );
     }
     /*Update Users */
-    updateuser(){
+    updateUser(){
       
       this.userservice.updateUsers(this.AllUserdata._id,this.Biodataform.getRawValue()).subscribe(
         res=>{
