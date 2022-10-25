@@ -20,6 +20,7 @@ export class BiodataformComponent implements OnInit {
   AllUserdata: any;
   isReadOnly: boolean = false;
   isShowupdate: boolean = false;
+  error: any;
   constructor(
     private formbuilder: FormBuilder,
     public userservice: BiodataService
@@ -82,8 +83,13 @@ export class BiodataformComponent implements OnInit {
             country: ['', [Validators.required]],
             qualification: ['', [Validators.required]],
             comments: ['', [Validators.required]],
-          });
+          },
+          (error: any) => {
+            this.error = error;
+          }
+          );
           this.submitted = false;
+          
         });
     }
   }
@@ -112,6 +118,7 @@ export class BiodataformComponent implements OnInit {
         console.log(res);
         // this.dataSaved = true;
         this.getUserlists();
+        
       });
     }
   }
@@ -136,7 +143,12 @@ export class BiodataformComponent implements OnInit {
         country: this.AllUserdata.country,
         qualification: this.AllUserdata.qualification,
         comments: this.AllUserdata.comments,
-      });
+      },
+      (error: any) => {
+        this.error = error;
+      }
+      );
+     
     });
   }
   /*View Users */
@@ -160,7 +172,12 @@ export class BiodataformComponent implements OnInit {
         country: this.AllUserdata.country,
         qualification: this.AllUserdata.qualification,
         comments: this.AllUserdata.comments,
-      });
+      },
+      (error: any) => {
+        this.error = error;
+      }
+      );
+      
     });
   }
   /*Update Users */
@@ -194,6 +211,11 @@ export class BiodataformComponent implements OnInit {
           qualification: ['', [Validators.required]],
           comments: ['', [Validators.required]],
         });
-      });
+        
+      },
+      (error: any) => {
+        this.error = error;
+      }
+      );
   }
 }

@@ -2,14 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormBuilder } from '@angular/forms';
+
+import { Observable, throwError } from 'rxjs';
+
+import { retry, catchError } from 'rxjs/operators';
 import { map } from 'rxjs';
 import { CommonService } from 'src/app/common.service';
-@Injectable()
+@Injectable(
+)
 export class BiodataService {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    public commonService: CommonService
+    public commonService: CommonService,
+
   ) {}
 
   getUserlist() {
@@ -39,4 +45,7 @@ export class BiodataService {
       headers,
     });
   }
+  
+  
 }
+
