@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BaseURI: 'http://54.202.218.249:9501/',
-  apiURI: 'http://54.202.218.249:9501/'
+  apiURI: 'http://54.202.218.249:9501/',
 };
 
 /*

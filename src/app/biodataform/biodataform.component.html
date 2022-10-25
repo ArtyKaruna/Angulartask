@@ -1,120 +1,292 @@
 <div class="container">
-    <div class="register col-md-5 col-sm-6">
-        <h1 class="title"><strong>Bio Data</strong>
-        </h1>
-        <form role="form" [formGroup]="Biodataform">
-            <div class="form-group">
-                <label class="reg_txt">Name <span>*</span></label>
-                <div class="controls form-inline">      
-                    <div class="w-50 float-left pr-1">    
-                        <input type="text" class="input-name" formControlName="firstName" [readonly]="isReadOnly" placeholder="First" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.firstName.errors">Please fill this field</div>
-                        </div>
-                    <div class="w-50 float-left pr-1">
-                        <input type="text" class="input-name" formControlName="lastName" placeholder="Last" [readonly]="isReadOnly" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.lastName.errors">Please fill this field</div>
-                    </div> 
-                </div>                        
+  <div class="register col-md-5 col-sm-6">
+    <h1 class="title"><strong>Bio Data</strong></h1>
+    <form role="form" [formGroup]="Biodataform">
+      <div class="form-group">
+        <label class="reg_txt">Name <span>*</span></label>
+        <div class="controls form-inline">
+          <div class="w-50 float-left pr-1">
+            <input
+              type="text"
+              class="input-name"
+              formControlName="firstName"
+              [readonly]="isReadOnly"
+              placeholder="First"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.firstName.errors"
+            >
+              Please fill this field
             </div>
-            <div class="clearfix"></div>
-            <div class="form-group">
-                <label class="reg_txt">Email<span>*</span></label>
-                <input type="text" class="form-register text" #emailFocus formControlName="email" [readonly]="isReadOnly" placeholder="E-mail" required/>
-                <div *ngIf="submitted && f3.email.errors"  class="invalid-feedback d-block">
-                    <div
-                      *ngIf="f3.email.errors.required">
-                      Please fill out this field
-                    </div>
-                    <div *ngIf="f3.email.errors.pattern">
-                      Please
-                      enter a
-                      valid email address
-                    </div>
-                </div>
+          </div>
+          <div class="w-50 float-left pr-1">
+            <input
+              type="text"
+              class="input-name"
+              formControlName="lastName"
+              placeholder="Last"
+              [readonly]="isReadOnly"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.lastName.errors"
+            >
+              Please fill this field
             </div>
-            <div class="clearfix"></div>
-            <div class="form-group" style="height:70px;">
-                <label class="reg_txt">Phone Number  <span>*</span></label>
-                <div class="clearfix"></div>
-                <div class="wsite-form">
-                    <input type="text" maxlength="10" (keypress)="keyPressMobile($event)" formControlName="phoneNumber" [readonly]="isReadOnly" class="text input-name1" required/>
-                    <div class="error text-danger mt-1" *ngIf="submitted && f3.phoneNumber.errors">Please fill this field</div>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label class="reg_txt">Email<span>*</span></label>
+        <input
+          type="text"
+          class="form-register text"
+          #emailFocus
+          formControlName="email"
+          [readonly]="isReadOnly"
+          placeholder="E-mail"
+          required
+        />
+        <div
+          *ngIf="submitted && f3.email.errors"
+          class="invalid-feedback d-block"
+        >
+          <div *ngIf="f3.email.errors.required">Please fill out this field</div>
+          <div *ngIf="f3.email.errors.pattern">
+            Please enter a valid email address
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group" style="height: 70px">
+        <label class="reg_txt">Phone Number <span>*</span></label>
+        <div class="clearfix"></div>
+        <div class="wsite-form">
+          <input
+            type="text"
+            maxlength="10"
+            (keypress)="keyPressMobile($event)"
+            formControlName="phoneNumber"
+            [readonly]="isReadOnly"
+            class="text input-name1"
+            required
+          />
+          <div
+            class="error text-danger mt-1"
+            *ngIf="submitted && f3.phoneNumber.errors"
+          >
+            Please fill this field
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group mt-2">
+        <label class="reg_txt w-100 float-left">Address <span>*</span></label>
+        <div class="w-50 float-left pr-1">
+          <input
+            type="text"
+            class="form-register text"
+            formControlName="address1"
+            [readonly]="isReadOnly"
+            id=""
+            placeholder="Line 1"
+            required
+          />
+          <div
+            class="error text-danger mt-1"
+            *ngIf="submitted && f3.address1.errors"
+          >
+            Please fill this field
+          </div>
+        </div>
+        <div class="w-50 float-left pr-1">
+          <input
+            type="text"
+            class="form-register text"
+            formControlName="address2"
+            [readonly]="isReadOnly"
+            id=""
+            placeholder="Line 2"
+            required
+          />
+          <div
+            class="error text-danger mt-1"
+            *ngIf="submitted && f3.address2.errors"
+          >
+            Please fill this field
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="controls mt-2 float-left w-100 form-inline">
+          <div class="w-50 float-left pr-1">
+            <input
+              type="text"
+              class="input-name"
+              formControlName="city"
+              [readonly]="isReadOnly"
+              placeholder="City"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.city.errors"
+            >
+              Please fill this field
             </div>
-            <div class="clearfix"></div>
-            <div class="form-group mt-2">
-                <label class="reg_txt w-100 float-left">Address  <span>*</span></label>
-                <div class="w-50 float-left pr-1"> 
-                    <input type="text" class="form-register text" formControlName="address1" [readonly]="isReadOnly" id="" placeholder="Line 1" required/>
-                    <div class="error text-danger mt-1" *ngIf="submitted && f3.address1.errors">Please fill this field</div>
-                </div>
-                <div class="w-50 float-left pr-1"> 
-                    <input type="text" class="form-register text" formControlName="address2" [readonly]="isReadOnly" id="" placeholder="Line 2" required/>
-                    <div class="error text-danger mt-1" *ngIf="submitted && f3.address2.errors">Please fill this field</div>
-                </div>
+          </div>
+          <div class="w-50 float-left pr-1">
+            <input
+              type="text"
+              class="input-name"
+              formControlName="state"
+              [readonly]="isReadOnly"
+              placeholder="State"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.state.errors"
+            >
+              Please fill this field
             </div>
-            <div class="form-group">                    
-                <div class="controls mt-2 float-left w-100 form-inline">  
-                    <div class="w-50 float-left pr-1">    
-                        <input type="text" class="input-name" formControlName="city" [readonly]="isReadOnly" placeholder="City" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.city.errors">Please fill this field</div>
-                    </div> 
-                    <div class="w-50 float-left pr-1">
-                        <input type="text" class="input-name" formControlName="state" [readonly]="isReadOnly" placeholder="State" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.state.errors">Please fill this field</div>
-                    </div>
-                </div>                        
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="controls form-inline">
+          <div class="w-50 float-left pr-1">
+            <input
+              type="text"
+              class="input-name"
+              maxlength="6"
+              formControlName="zipCode"
+              [readonly]="isReadOnly"
+              placeholder="Zip Code"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.zipCode.errors"
+            >
+              Please fill this field
             </div>
-            <div class="form-group">                    
-                <div class="controls form-inline">
-                    <div class="w-50 float-left pr-1">       
-                        <input type="text" class="input-name" maxlength="6" formControlName="zipCode" [readonly]="isReadOnly" placeholder="Zip Code" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.zipCode.errors">Please fill this field</div>
-                       
-                    </div>
-                    <div class="w-50 float-left pl-1">
-                        <input type="text" class="input-name" formControlName="country" [readonly]="isReadOnly" placeholder="country" required/>
-                        <div class="error text-danger mt-1" *ngIf="submitted && f3.country.errors">Please fill this field</div>
-                        </div>   
-                    </div>                     
+          </div>
+          <div class="w-50 float-left pl-1">
+            <input
+              type="text"
+              class="input-name"
+              formControlName="country"
+              [readonly]="isReadOnly"
+              placeholder="country"
+              required
+            />
+            <div
+              class="error text-danger mt-1"
+              *ngIf="submitted && f3.country.errors"
+            >
+              Please fill this field
             </div>
-            <div class="form-group">
-                <label class="reg_txt">Write Your qualification <span>*</span></label>
-                <input type="text" class="form-register text" id="" formControlName="qualification" [readonly]="isReadOnly" style="margin-bottom:15px;" required/>
-                <div class="error text-danger mt-1" *ngIf="submitted && f3.qualification.errors">Please fill this field</div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="form-group">
-                <label class="reg_txt">Comment  <span>*</span></label>                        
-                <textarea class="form-register text" formControlName="comments" [readonly]="isReadOnly"></textarea>
-                <div class="error text-danger mt-1" *ngIf="submitted && f3.comments.errors">Please fill this field</div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="!isShowupdate" (click)="onSubmit()">Submit</button>
-                <button type="submit" class="btn btn-default submit" style="width:97%;" type="submit" *ngIf="isShowupdate" (click)="updateUser()">Update</button>
-            </div>
-        </form>
-    </div>
-    <div class="col-md-6 tabt">
-        <table class="table">
-            <tbody>
-                <tr class="ztxt">
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                    <th>View</th>
-                </tr>
-                <tr *ngFor="let data of UserList">
-                    <td>{{data.firstName}}</td>
-                    <td>{{data.email}}</td>
-                    <td>{{data.phoneNumber}}</td>
-                    <td><button class="ed" (click)="editUsers(data)">Edit</button></td>
-                    <td><button class="ed" (click)="deleteUser(data._id)" style="background:#f00;">Delete</button></td>
-                    <td><button class="ed"style="background:#000;" (click)="viewData(data)">View</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="reg_txt">Write Your qualification <span>*</span></label>
+        <input
+          type="text"
+          class="form-register text"
+          id=""
+          formControlName="qualification"
+          [readonly]="isReadOnly"
+          style="margin-bottom: 15px"
+          required
+        />
+        <div
+          class="error text-danger mt-1"
+          *ngIf="submitted && f3.qualification.errors"
+        >
+          Please fill this field
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="form-group">
+        <label class="reg_txt">Comment <span>*</span></label>
+        <textarea
+          class="form-register text"
+          formControlName="comments"
+          [readonly]="isReadOnly"
+        ></textarea>
+        <div
+          class="error text-danger mt-1"
+          *ngIf="submitted && f3.comments.errors"
+        >
+          Please fill this field
+        </div>
+      </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          class="btn btn-default submit"
+          style="width: 97%"
+          type="submit"
+          *ngIf="!isShowupdate"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+        <button
+          type="submit"
+          class="btn btn-default submit"
+          style="width: 97%"
+          type="submit"
+          *ngIf="isShowupdate"
+          (click)="updateUser()"
+        >
+          Update
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6 tabt">
+    <table class="table">
+      <tbody>
+        <tr class="ztxt">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>View</th>
+        </tr>
+        <tr *ngFor="let data of UserList">
+          <td>{{ data.firstName }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.phoneNumber }}</td>
+          <td><button class="ed" (click)="editUsers(data)">Edit</button></td>
+          <td>
+            <button
+              class="ed"
+              (click)="deleteUser(data._id)"
+              style="background: #f00"
+            >
+              Delete
+            </button>
+          </td>
+          <td>
+            <button
+              class="ed"
+              style="background: #000"
+              (click)="viewData(data)"
+            >
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

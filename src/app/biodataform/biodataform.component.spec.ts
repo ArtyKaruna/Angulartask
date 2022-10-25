@@ -8,9 +8,8 @@ describe('BiodataformComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BiodataformComponent ]
-    })
-    .compileComponents();
+      declarations: [BiodataformComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BiodataformComponent);
     component = fixture.componentInstance;

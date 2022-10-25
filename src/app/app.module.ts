@@ -11,21 +11,18 @@ import { BiodataformComponent } from './biodataform/biodataform.component';
 import { BiodataService } from './biodataform/biodata.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 @NgModule({
-  declarations: [
-    AppComponent,
-    BiodataformComponent
-  ],
+  declarations: [AppComponent, BiodataformComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [BiodataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
