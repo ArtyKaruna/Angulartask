@@ -62,34 +62,34 @@ export class BiodataformComponent implements OnInit {
           this.getUserlists();
           this.Biodataform.reset();
           this.Biodataform.markAsUntouched();
-          this.Biodataform = this.formbuilder.group({
-            firstName: ['', [Validators.pattern("^[a-zA-Z -']+")]],
-            lastName: ['', [Validators.required]],
-            email: [
-              '',
-              [
-                Validators.required,
-                Validators.pattern(
-                  '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+$'
-                ),
+          this.Biodataform = this.formbuilder.group(
+            {
+              firstName: ['', [Validators.pattern("^[a-zA-Z -']+")]],
+              lastName: ['', [Validators.required]],
+              email: [
+                '',
+                [
+                  Validators.required,
+                  Validators.pattern(
+                    '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+$'
+                  ),
+                ],
               ],
-            ],
-            phoneNumber: ['', [Validators.required]],
-            address1: ['', [Validators.required]],
-            address2: ['', [Validators.required]],
-            city: ['', [Validators.required]],
-            state: ['', [Validators.required]],
-            zipCode: ['', [Validators.required]],
-            country: ['', [Validators.required]],
-            qualification: ['', [Validators.required]],
-            comments: ['', [Validators.required]],
-          },
-          (error: any) => {
-            this.error = error;
-          }
+              phoneNumber: ['', [Validators.required]],
+              address1: ['', [Validators.required]],
+              address2: ['', [Validators.required]],
+              city: ['', [Validators.required]],
+              state: ['', [Validators.required]],
+              zipCode: ['', [Validators.required]],
+              country: ['', [Validators.required]],
+              qualification: ['', [Validators.required]],
+              comments: ['', [Validators.required]],
+            },
+            (error: any) => {
+              this.error = error;
+            }
           );
           this.submitted = false;
-          
         });
     }
   }
@@ -118,7 +118,6 @@ export class BiodataformComponent implements OnInit {
         console.log(res);
         // this.dataSaved = true;
         this.getUserlists();
-        
       });
     }
   }
@@ -129,26 +128,26 @@ export class BiodataformComponent implements OnInit {
     this.userservice.getUsersById(Id._id).subscribe((res) => {
       console.log(res);
       this.AllUserdata = res;
-      this.Biodataform.patchValue({
-        _id: this.AllUserdata._id,
-        firstName: this.AllUserdata.firstName,
-        lastName: this.AllUserdata.lastName,
-        email: this.AllUserdata.email,
-        phoneNumber: this.AllUserdata.phoneNumber,
-        address1: this.AllUserdata.address1,
-        address2: this.AllUserdata.address2,
-        city: this.AllUserdata.city,
-        state: this.AllUserdata.state,
-        zipCode: this.AllUserdata.zipCode,
-        country: this.AllUserdata.country,
-        qualification: this.AllUserdata.qualification,
-        comments: this.AllUserdata.comments,
-      },
-      (error: any) => {
-        this.error = error;
-      }
+      this.Biodataform.patchValue(
+        {
+          _id: this.AllUserdata._id,
+          firstName: this.AllUserdata.firstName,
+          lastName: this.AllUserdata.lastName,
+          email: this.AllUserdata.email,
+          phoneNumber: this.AllUserdata.phoneNumber,
+          address1: this.AllUserdata.address1,
+          address2: this.AllUserdata.address2,
+          city: this.AllUserdata.city,
+          state: this.AllUserdata.state,
+          zipCode: this.AllUserdata.zipCode,
+          country: this.AllUserdata.country,
+          qualification: this.AllUserdata.qualification,
+          comments: this.AllUserdata.comments,
+        },
+        (error: any) => {
+          this.error = error;
+        }
       );
-     
     });
   }
   /*View Users */
@@ -158,64 +157,64 @@ export class BiodataformComponent implements OnInit {
     this.userservice.getUsersById(Id._id).subscribe((res) => {
       console.log(res);
       this.AllUserdata = res;
-      this.Biodataform.patchValue({
-        _id: this.AllUserdata._id,
-        firstName: this.AllUserdata.firstName,
-        lastName: this.AllUserdata.lastName,
-        email: this.AllUserdata.email,
-        phoneNumber: this.AllUserdata.phoneNumber,
-        address1: this.AllUserdata.address1,
-        address2: this.AllUserdata.address2,
-        city: this.AllUserdata.city,
-        state: this.AllUserdata.state,
-        zipCode: this.AllUserdata.zipCode,
-        country: this.AllUserdata.country,
-        qualification: this.AllUserdata.qualification,
-        comments: this.AllUserdata.comments,
-      },
-      (error: any) => {
-        this.error = error;
-      }
+      this.Biodataform.patchValue(
+        {
+          _id: this.AllUserdata._id,
+          firstName: this.AllUserdata.firstName,
+          lastName: this.AllUserdata.lastName,
+          email: this.AllUserdata.email,
+          phoneNumber: this.AllUserdata.phoneNumber,
+          address1: this.AllUserdata.address1,
+          address2: this.AllUserdata.address2,
+          city: this.AllUserdata.city,
+          state: this.AllUserdata.state,
+          zipCode: this.AllUserdata.zipCode,
+          country: this.AllUserdata.country,
+          qualification: this.AllUserdata.qualification,
+          comments: this.AllUserdata.comments,
+        },
+        (error: any) => {
+          this.error = error;
+        }
       );
-      
     });
   }
   /*Update Users */
   updateUser() {
     this.userservice
       .updateUsers(this.AllUserdata._id, this.Biodataform.getRawValue())
-      .subscribe((res) => {
-        this.getUserlists();
-        this.Biodataform.reset();
-        this.Biodataform.markAsUntouched();
-        this.Biodataform = this.formbuilder.group({
-          _id: [''],
-          firstName: ['', [Validators.pattern("^[a-zA-Z -']+")]],
-          lastName: ['', [Validators.required]],
-          email: [
-            '',
-            [
-              Validators.required,
-              Validators.pattern(
-                '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+$'
-              ),
+      .subscribe(
+        (res) => {
+          this.getUserlists();
+          this.Biodataform.reset();
+          this.Biodataform.markAsUntouched();
+          this.Biodataform = this.formbuilder.group({
+            _id: [''],
+            firstName: ['', [Validators.pattern("^[a-zA-Z -']+")]],
+            lastName: ['', [Validators.required]],
+            email: [
+              '',
+              [
+                Validators.required,
+                Validators.pattern(
+                  '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+$'
+                ),
+              ],
             ],
-          ],
-          phoneNumber: ['', [Validators.required]],
-          address1: ['', [Validators.required]],
-          address2: ['', [Validators.required]],
-          city: ['', [Validators.required]],
-          state: ['', [Validators.required]],
-          zipCode: ['', [Validators.required]],
-          country: ['', [Validators.required]],
-          qualification: ['', [Validators.required]],
-          comments: ['', [Validators.required]],
-        });
-        
-      },
-      (error: any) => {
-        this.error = error;
-      }
+            phoneNumber: ['', [Validators.required]],
+            address1: ['', [Validators.required]],
+            address2: ['', [Validators.required]],
+            city: ['', [Validators.required]],
+            state: ['', [Validators.required]],
+            zipCode: ['', [Validators.required]],
+            country: ['', [Validators.required]],
+            qualification: ['', [Validators.required]],
+            comments: ['', [Validators.required]],
+          });
+        },
+        (error: any) => {
+          this.error = error;
+        }
       );
   }
 }

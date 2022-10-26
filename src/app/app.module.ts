@@ -23,12 +23,13 @@ import { HttpErrorInterceptor } from './http-error.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [BiodataService, 
+  providers: [
+    BiodataService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
